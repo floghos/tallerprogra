@@ -1,4 +1,3 @@
-package sum;
 import java.util.*;
 import java.io.*;
 
