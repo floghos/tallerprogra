@@ -1,33 +1,29 @@
 package timus_1001;
 
+import static java.lang.Math.sqrt;
 import java.util.*;
 
 public class Timus_1001 {
+static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Recursive r = new Recursive();
-        Scanner scanner = new Scanner(System.in);
-        
+        long n = scanner.nextInt();
         if (scanner.hasNextInt()) {
-            r.main();
+            recursive();
         }
+        double res = sqrt(n);
+        System.out.printf("%.4f", res);
+        System.out.println();
+    }
+    
+    private static void recursive() {
+        long n = scanner.nextInt();
+        if (scanner.hasNextInt()) {
+            recursive();
+        }
+        double res = sqrt(n);
+        System.out.printf("%.4f", res);
+        System.out.println();
     }
 
-}
-class Recursive {
-    public Recursive() {
-     
-    }
-    public void main() {
-        int num;
-        Recursive r = new Recursive();
-        Scanner scanner = new Scanner(System.in);
-        num = scanner.nextInt();
-        if (scanner.hasNextInt()) {
-            r.main();
-        } else {
-            
-        }
-        System.out.println(Math.sqrt(num));
-    }
 }
