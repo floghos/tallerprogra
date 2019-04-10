@@ -13,14 +13,15 @@ int main(int argc, char const *argv[]) {
         cin >> n;
 
         for (int j = 0; j < n; j++) {
+            char c;
             string temp;
-            cin >> temp;
-            switch (string(temp)) { //switch can only evaluate integers :/
-                case "LEFT":
+            cin >> c >> temp;
+            switch (c) { 
+                case 'L':
                     dir.push_back(left);
-                case "RIGHT":
+                case 'R':
                     dir.push_back(right);
-                case "SAME":
+                case 'S':
                     int num;
                     cin >> temp >> num;
                     dir.push_back(num - 1);
