@@ -11,15 +11,10 @@ int main(int argc, char const *argv[]) {
         int n;
         vector<int> dir;
         cin >> n;
-		// cout << "n = " << n << '\n';//for testing
-
         for (int j = 0; j < n; j++) {
             char c;
             string temp;
             cin >> c >> temp;
-
-			// cout << "read: " << c << " " << temp << '\n';//for testing
-
 			switch (c) {
                 case 'L':
                     dir.push_back(left);
@@ -35,12 +30,7 @@ int main(int argc, char const *argv[]) {
             }
         }
 
-		// for (int j = 0; j < n; j++){ // for testing
-		// 	cout << dir[j] << endl;
-		// }
-
 		int position = 0;
-
 		for (int j = 0; j < n; j++) {
 			int k = j;
 			while (dir[k] >= 0) {
@@ -49,7 +39,6 @@ int main(int argc, char const *argv[]) {
 			if (dir[k] == left) position--;
 			if (dir[k] == right) position++;
 		}
-
 		cout << position << "\n";
     }
     return 0;

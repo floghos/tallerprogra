@@ -17,8 +17,6 @@ int main(int argc, char const *argv[]) {
 
     sort(arr.begin(), arr.end());
 
-    // cout << arr[0] << " " << arr[1] << " " << arr[2] << "\n";
-
     cout << "Case " << i + 1 << ": " << arr[1] << "\n";
     arr.clear();
   }
