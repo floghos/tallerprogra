@@ -40,16 +40,26 @@ int main(int argc, char const *argv[]) {
 			done = false;
 		}
 
+		cout << "preliminary check done" << '\n'; //for debug, good up until here
+
 		while (!done) {
-			while (carrier.top() == pos) { //unloading cargo to platform A
+			cout << "Station: " << pos << "   Time: " << timer << '\n';
+			cout << "Carrier top box: " << carrier.top() << '\n';
+			
+			while ((carrier.top() == pos) && !carrier.empty()) { //unloading cargo to platform A
+				cout << "Unloading to A..." << '\n';
 				carrier.pop();
 				timer++;
 			}
+			cout << "Done unloading to platform A" << '\n';
+
 			while (!carrier.empty() && (stations[pos].size() < q)) { //unloading rest to platform B
-				stations[pos].push_back(carrier.top());
+				cout << "Unloading to B..." << '\n';
+				stations[pos].push(carrier.top());
 				carrier.pop();
 				timer++;
 			}
+			cout << "Done unloading to platform B" << '\n';
 
 			while (carrier.size() < s) { //loading up the carrier until it's full
 				carrier.push(stations[pos].front());
@@ -58,7 +68,7 @@ int main(int argc, char const *argv[]) {
 			}
 
 
-			done = true;
+			done = true; //check if all stations and carrier are empty. If so, we are done.
 			if (carrier.empty()) {
 				for (int i = 0; i < n; i++) {
 					if (!stations[i].empty()) {
@@ -71,10 +81,12 @@ int main(int argc, char const *argv[]) {
 			}
 			if (done) break;
 
-			pos++;
-			pos %= n;
-			timer += 2;
+			pos++; //If it made it this far, we have to go to the next station
+			pos %= n; //using this to loop around once we reach the last one
+			timer += 2; //It takes 2 minutes to go from one station to the next
 		}
+
+		cout << timer << '\n';
 
 		// for (int i = 0; i < stations.size(); i++) { //checking input
 		// 	int len = stations[i].size();
